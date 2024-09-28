@@ -16,7 +16,6 @@ namespace ProductAPI.Persistence
         {
             foreach (var item in ChangeTracker.Entries<IEntity>().AsEnumerable())
             {
-                //Auto Timestamp
                 item.Entity.CreatedAt = DateTime.Now;
             }
             return base.SaveChangesAsync(cancellationToken);
@@ -44,7 +43,7 @@ namespace ProductAPI.Persistence
                 .Property(p => p.ProductId).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Product>().HasData(
-                new Product { Id = 1, ProductId = 6, Name = "Product 1", Description = "Description for Product 1", Price = 9.99m, StockAvailable = 100 });
+                new Product { Id = 1, ProductId = 1, Name = "Product 1", Description = "Description for Product 1", Price = 90.99m, StockAvailable = 100 });
 
 
         }

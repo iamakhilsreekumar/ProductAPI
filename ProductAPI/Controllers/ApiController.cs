@@ -12,7 +12,6 @@ namespace ProductAPI.Controllers
             if (errors.Count is 0)
                 return Problem();
 
-            //For this category we might have an array of errors which we need to show to the user
             if (errors.All(e => e.Type == ErrorType.Validation))
             {
                 var modelStateDict = new ModelStateDictionary();

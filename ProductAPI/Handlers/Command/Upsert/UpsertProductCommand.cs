@@ -42,7 +42,7 @@ namespace ProductAPI.Handlers.Command.Upsert
                     _uow.Repository().Update(_mapper.Map<Product>(request.Product));
                 }
                 var IsCreated = _uow.CommitAsync(cancellationToken);
-                return product is null ? request.Product : _mapper.Map<ProductResource>(product);
+                return product is null ? _mapper.Map<ProductResource>(product): request.Product;
             }
         }
     }
